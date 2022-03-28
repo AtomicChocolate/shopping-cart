@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
-function App() {
-	return <div></div>;
+function Main() {
+	return <div>Welcome</div>;
 }
 
-export default App;
+export default Main;
