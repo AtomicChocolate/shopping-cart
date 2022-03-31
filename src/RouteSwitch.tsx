@@ -11,12 +11,16 @@ const RouteSwitch = () => {
 		items: [],
 	} as CartType);
 
+	function AddToCart() {
+		// todo
+	}
+
 	return (
 		<BrowserRouter>
 			<NavBar cartCount={cart.items.length} />
 			<Routes>
 				<Route path="/" element={<Main />} />
-				<Route path="/catalog" element={<Catalog />} />
+				<Route path="/catalog" element={<Catalog AddToCart={AddToCart} />} />
 				<Route path="/cart" element={<Cart Cart={cart} />} />
 			</Routes>
 		</BrowserRouter>
