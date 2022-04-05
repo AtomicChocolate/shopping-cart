@@ -4,7 +4,6 @@ import items from "../utils/Items";
 import { CartType } from "../utils/Types";
 import Product from "./Product";
 
-// eslint-disable-next-line @typescript-eslint/ban-types
 type Props = { AddToCart: () => void };
 
 const Catalog = (props: Props) => {

@@ -37,11 +37,13 @@ const Product = (props: Props) => {
 
 const ProductContainer = styled.div`
 	background-color: ${(props) => props.theme.navBackground};
+	height: auto;
+	text-align: center;
 `;
 const Name = styled.h2``;
 const Thumbnail = styled.img`
-	max-width: 100%;
-	height: auto;
+	max-height: 20vh;
+	width: auto;
 `;
 const Price = styled.p``;
 const AmountContainer = styled.div``;

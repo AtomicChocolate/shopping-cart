@@ -4,6 +4,11 @@ type ShopItem = {
 	price: number;
 };
 
+type CartItem = {
+	item: ShopItem;
+	amount: number;
+};
+
 type CartType = {
 	items: ShopItem[];
 };
