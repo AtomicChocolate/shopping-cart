@@ -4,14 +4,18 @@ import { CartType } from "../utils/Types";
 import CartItem from "./CartItem";
 
 type Props = {
-	Cart: CartType;
+	cart: CartType;
 };
 
 const Cart = (props: Props) => {
+	const setBuyAmount = (amount: number) => {
+		//todo
+	};
+
 	return (
 		<div>
-			{props.Cart.items.map((item) => (
-				<CartItem item={item} key={uniqid()} />
+			{props.cart.items.map((item) => (
+				<CartItem item={item} setBuyAmount={setBuyAmount} key={uniqid()} />
 			))}
 		</div>
 	);

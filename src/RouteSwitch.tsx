@@ -4,24 +4,33 @@ import Main from "./Main";
 import Cart from "./components/Cart";
 import Catalog from "./components/Catalog";
 import NavBar from "./components/NavBar";
-import { CartType } from "./utils/Types";
+import { CartItem, CartType } from "./utils/Types";
 
 const RouteSwitch = () => {
 	const [cart, updateCart] = useState({
 		items: [],
 	} as CartType);
 
-	function AddToCart() {
-		// todo
-	}
+	const addToCart = (newCartItem: CartItem): void => {
+		const newCart = Object.assign({}, cart);
+		const find = newCart.items.find(
+			(cartItem) => cartItem.item === newCartItem.item
+		);
+		if (find) {
+			find.amount = newCartItem.amount;
+		} else {
+			newCart.items.push(newCartItem);
+		}
+		updateCart(newCart);
+	};
 
 	return (
 		<BrowserRouter>
 			<NavBar cartCount={cart.items.length} />
 			<Routes>
 				<Route path="/" element={<Main />} />
-				<Route path="/catalog" element={<Catalog AddToCart={AddToCart} />} />
-				<Route path="/cart" element={<Cart Cart={cart} />} />
+				<Route path="/catalog" element={<Catalog addToCart={addToCart} />} />
+				<Route path="/cart" element={<Cart cart={cart} />} />
 			</Routes>
 		</BrowserRouter>
 	);

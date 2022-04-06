@@ -4,7 +4,7 @@ import { ShopItem } from "../utils/Types";
 
 type Props = {
 	item: ShopItem;
-	AddToCart: (amount: number) => void;
+	addToCart: (amount: number) => void;
 };
 
 const Product = (props: Props) => {
@@ -28,7 +28,7 @@ const Product = (props: Props) => {
 					-
 				</DecreaseButton>
 			</AmountContainer>
-			<AddButton onClick={() => props.AddToCart(buyAmount)}>
+			<AddButton onClick={() => props.addToCart(buyAmount)}>
 				Add to cart
 			</AddButton>
 		</ProductContainer>

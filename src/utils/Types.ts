@@ -10,7 +10,7 @@ type CartItem = {
 };
 
 type CartType = {
-	items: ShopItem[];
+	items: CartItem[];
 };
 
-export type { ShopItem, CartType };
+export type { ShopItem, CartItem, CartType };
