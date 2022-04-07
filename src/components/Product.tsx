@@ -1,10 +1,10 @@
 import React, { ChangeEvent, useState } from "react";
 import styled from "styled-components";
-import { ShopItem } from "../utils/Types";
+import { CartItem, ShopItem } from "../utils/Types";
 
 type Props = {
 	item: ShopItem;
-	addToCart: (amount: number) => void;
+	addToCart: (newCartItem: CartItem) => void;
 };
 
 const Product = (props: Props) => {
@@ -28,7 +28,9 @@ const Product = (props: Props) => {
 					-
 				</DecreaseButton>
 			</AmountContainer>
-			<AddButton onClick={() => props.addToCart(buyAmount)}>
+			<AddButton
+				onClick={() => props.addToCart({ item: props.item, amount: buyAmount })}
+			>
 				Add to cart
 			</AddButton>
 		</ProductContainer>

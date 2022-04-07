@@ -1,7 +1,7 @@
 import React from "react";
 import uniqid from "uniqid";
 import { CartType } from "../utils/Types";
-import CartItem from "./CartItem";
+import CartProduct from "./CartProduct";
 
 type Props = {
 	cart: CartType;
@@ -15,7 +15,7 @@ const Cart = (props: Props) => {
 	return (
 		<div>
 			{props.cart.items.map((item) => (
-				<CartItem item={item} setBuyAmount={setBuyAmount} key={uniqid()} />
+				<CartProduct item={item} setBuyAmount={setBuyAmount} key={uniqid()} />
 			))}
 		</div>
 	);

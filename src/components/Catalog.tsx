@@ -10,7 +10,7 @@ const Catalog = (props: Props) => {
 	return (
 		<div>
 			{items.map((item) => (
-				<Product item={item} addToCart={() => alert("todo")} key={uniqid()} />
+				<Product item={item} addToCart={props.addToCart} key={uniqid()} />
 			))}
 		</div>
 	);

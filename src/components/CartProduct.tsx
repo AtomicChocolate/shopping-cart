@@ -7,7 +7,7 @@ type Props = {
 	setBuyAmount: (amount: number) => void;
 };
 
-const CartItem = (props: Props) => {
+const CartProduct = (props: Props) => {
 	function AmountInputChange(e: ChangeEvent<HTMLInputElement>) {
 		props.setBuyAmount(+e.target.value);
 	}
@@ -53,4 +53,4 @@ const AmountInput = styled.input.attrs({ type: "number", min: 1 })``;
 const IncreaseButton = styled.button``;
 const DecreaseButton = styled.button``;
 
-export default CartItem;
+export default CartProduct;
