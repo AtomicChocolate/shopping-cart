@@ -18,6 +18,7 @@ const CartProduct = (props: Props) => {
 				buyAmount={props.item.amount}
 				setBuyAmount={props.setBuyAmount}
 			/>
+			<RemoveButton onClick={() => props.setBuyAmount(0)}>Remove</RemoveButton>
 			<TotalPrice>
 				${(props.item.item.price * props.item.amount).toFixed(2)}
 			</TotalPrice>
@@ -38,6 +39,7 @@ const Thumbnail = styled.img`
 `;
 const Name = styled.h2``;
 const Price = styled.p``;
+const RemoveButton = styled.button``;
 const TotalPrice = styled.p`
 	color: lightgreen;
 `;

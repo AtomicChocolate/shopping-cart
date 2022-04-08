@@ -8,12 +8,16 @@ const App = () => {
 	} as CartType);
 
 	const addToCart = (newCartItem: CartItem): void => {
-		newCartItem.amount = Math.max(newCartItem.amount, 0);
 		const newCart = Object.assign({}, cart);
 		const find = newCart.items.find(
 			(cartItem) => cartItem.item === newCartItem.item
 		);
 		if (find) {
+			if (newCartItem.amount === 0) {
+				newCart.items.splice(newCart.items.indexOf(find), 1);
+				updateCart(newCart);
+				return;
+			}
 			find.amount = newCartItem.amount;
 		} else {
 			newCart.items.push(newCartItem);

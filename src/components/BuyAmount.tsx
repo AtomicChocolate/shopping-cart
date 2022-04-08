@@ -18,7 +18,9 @@ const BuyAmount = (props: Props) => {
 			<IncreaseButton onClick={() => props.setBuyAmount(props.buyAmount + 1)}>
 				+
 			</IncreaseButton>
-			<DecreaseButton onClick={() => props.setBuyAmount(props.buyAmount - 1)}>
+			<DecreaseButton
+				onClick={() => props.setBuyAmount(Math.max(props.buyAmount - 1, 1))}
+			>
 				-
 			</DecreaseButton>
 		</AmountContainer>
@@ -30,8 +32,8 @@ const AmountContainer = styled.div`
 	display: inline-block;
 	margin: 1vh;
 `;
-const AmountInput = styled.input.attrs({ type: "number", min: 0 })`
-	width: 3ch;
+const AmountInput = styled.input.attrs({ type: "number", min: 1 })`
+	width: 5ch;
 `;
 const IncreaseButton = styled.button``;
 const DecreaseButton = styled.button``;

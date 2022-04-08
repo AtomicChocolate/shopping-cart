@@ -10,7 +10,7 @@ type Props = {
 const NavBar = (props: Props) => {
 	return (
 		<Nav>
-			<Header to="/">Shop</Header>
+			<Header to="/">🍫Store</Header>
 			<NavLink to="/catalog">Catalog</NavLink>
 			<NavLink to="/cart">Cart({props.cartCount})</NavLink>
 		</Nav>

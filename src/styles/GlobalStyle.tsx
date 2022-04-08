@@ -14,6 +14,10 @@ const GlobalStyle = createGlobalStyle`
             width: 70%;
         }
     }
+    a {
+        text-decoration: none;
+        color: ${(props) => props.theme.link};
+    }
 `;
 
 export default GlobalStyle;
