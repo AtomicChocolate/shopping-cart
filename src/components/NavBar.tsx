@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 // eslint-disable-next-line @typescript-eslint/ban-types
@@ -9,9 +10,9 @@ type Props = {
 const NavBar = (props: Props) => {
 	return (
 		<Nav>
-			<Header href="/">Shop</Header>
-			<NavLink href="/catalog">Catalog</NavLink>
-			<NavLink href="/cart">Cart({props.cartCount})</NavLink>
+			<Header to="/">Shop</Header>
+			<NavLink to="/catalog">Catalog</NavLink>
+			<NavLink to="/cart">Cart({props.cartCount})</NavLink>
 		</Nav>
 	);
 };
@@ -24,7 +25,7 @@ const Nav = styled.nav`
 	align-items: center;
 `;
 
-const Header = styled.a`
+const Header = styled(Link)`
 	margin: 0;
 	font-size: xx-large;
 	text-decoration: none;
@@ -33,7 +34,7 @@ const Header = styled.a`
 	margin-right: auto;
 `;
 
-const NavLink = styled.a`
+const NavLink = styled(Link)`
 	margin: 0;
 	font-size: large;
 	text-decoration: none;

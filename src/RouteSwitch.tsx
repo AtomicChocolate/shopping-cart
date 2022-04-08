@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Home";
 import Cart from "./components/Cart";
@@ -7,35 +7,21 @@ import NavBar from "./components/NavBar";
 import { CartItem, CartType } from "./utils/Types";
 
 type Props = {
-	// cart: CartType;
-	// todo
+	cart: CartType;
+	addToCart: (value: CartItem) => void;
 };
 
-const RouteSwitch = (Props: Props) => {
-	const [cart, updateCart] = useState({
-		items: [],
-	} as CartType);
-
-	const addToCart = (newCartItem: CartItem): void => {
-		const newCart = Object.assign({}, cart);
-		const find = newCart.items.find(
-			(cartItem) => cartItem.item === newCartItem.item
-		);
-		if (find) {
-			find.amount = newCartItem.amount;
-		} else {
-			newCart.items.push(newCartItem);
-		}
-		updateCart(newCart);
-	};
-
+const RouteSwitch = (props: Props) => {
 	return (
 		<BrowserRouter>
-			<NavBar cartCount={cart.items.length} />
+			<NavBar cartCount={props.cart.items.length} />
 			<Routes>
 				<Route path="/" element={<Home />} />
-				<Route path="/catalog" element={<Catalog addToCart={addToCart} />} />
-				<Route path="/cart" element={<Cart cart={cart} />} />
+				<Route
+					path="/catalog"
+					element={<Catalog addToCart={props.addToCart} />}
+				/>
+				<Route path="/cart" element={<Cart cart={props.cart} />} />
 			</Routes>
 		</BrowserRouter>
 	);
