@@ -6,7 +6,12 @@ import Catalog from "./components/Catalog";
 import NavBar from "./components/NavBar";
 import { CartItem, CartType } from "./utils/Types";
 
-const RouteSwitch = () => {
+type Props = {
+	// cart: CartType;
+	// todo
+};
+
+const RouteSwitch = (Props: Props) => {
 	const [cart, updateCart] = useState({
 		items: [],
 	} as CartType);

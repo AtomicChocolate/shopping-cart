@@ -1,6 +1,7 @@
 import React, { ChangeEvent, useState } from "react";
 import styled from "styled-components";
 import { CartItem, ShopItem } from "../utils/Types";
+import BuyAmount from "./BuyAmount";
 
 type Props = {
 	item: ShopItem;
@@ -10,24 +11,12 @@ type Props = {
 const Product = (props: Props) => {
 	const [buyAmount, setBuyAmount] = useState(1);
 
-	function AmountInputChange(e: ChangeEvent<HTMLInputElement>) {
-		setBuyAmount(+e.target.value);
-	}
-
 	return (
 		<ProductContainer>
 			<Name>{props.item.name}</Name>
 			<Thumbnail src={props.item.image} alt={props.item.name} />
 			<Price>${props.item.price}</Price>
-			<AmountContainer>
-				<AmountInput value={buyAmount} onChange={AmountInputChange} />
-				<IncreaseButton onClick={() => setBuyAmount(buyAmount + 1)}>
-					+
-				</IncreaseButton>
-				<DecreaseButton onClick={() => setBuyAmount(buyAmount - 1)}>
-					-
-				</DecreaseButton>
-			</AmountContainer>
+			<BuyAmount buyAmount={buyAmount} setBuyAmount={setBuyAmount} />
 			<AddButton
 				onClick={() => props.addToCart({ item: props.item, amount: buyAmount })}
 			>
@@ -48,10 +37,6 @@ const Thumbnail = styled.img`
 	width: auto;
 `;
 const Price = styled.p``;
-const AmountContainer = styled.div``;
-const AmountInput = styled.input.attrs({ type: "number", min: 0 })``;
-const IncreaseButton = styled.button``;
-const DecreaseButton = styled.button``;
 const AddButton = styled.button``;
 
 export default Product;
