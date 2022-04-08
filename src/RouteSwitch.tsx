@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Main from "./Main";
+import Home from "./Home";
 import Cart from "./components/Cart";
 import Catalog from "./components/Catalog";
 import NavBar from "./components/NavBar";
@@ -28,7 +28,7 @@ const RouteSwitch = () => {
 		<BrowserRouter>
 			<NavBar cartCount={cart.items.length} />
 			<Routes>
-				<Route path="/" element={<Main />} />
+				<Route path="/" element={<Home />} />
 				<Route path="/catalog" element={<Catalog addToCart={addToCart} />} />
 				<Route path="/cart" element={<Cart cart={cart} />} />
 			</Routes>
