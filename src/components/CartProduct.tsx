@@ -13,11 +13,14 @@ const CartProduct = (props: Props) => {
 		<ProductContainer>
 			<Thumbnail src={props.item.item.image} alt={props.item.item.name} />
 			<Name>{props.item.item.name}</Name>
-			<Price>${props.item.item.price * props.item.amount}</Price>
+			<Price>${props.item.item.price}</Price>
 			<BuyAmount
 				buyAmount={props.item.amount}
 				setBuyAmount={props.setBuyAmount}
 			/>
+			<TotalPrice>
+				${(props.item.item.price * props.item.amount).toFixed(2)}
+			</TotalPrice>
 		</ProductContainer>
 	);
 };
@@ -26,12 +29,17 @@ const ProductContainer = styled.div`
 	background-color: ${(props) => props.theme.navBackground};
 	height: auto;
 	text-align: center;
+	display: flex;
+	justify-content: space-between;
+`;
+const Thumbnail = styled.img`
+	height: 7.5vh;
+	max-width: auto;
 `;
 const Name = styled.h2``;
-const Thumbnail = styled.img`
-	max-height: 20vh;
-	width: auto;
-`;
 const Price = styled.p``;
+const TotalPrice = styled.p`
+	color: lightgreen;
+`;
 
 export default CartProduct;

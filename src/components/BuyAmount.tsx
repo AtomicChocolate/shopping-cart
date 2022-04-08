@@ -4,6 +4,7 @@ import styled from "styled-components";
 type Props = {
 	buyAmount: number;
 	setBuyAmount: (newAmount: number) => void;
+	//compact: boolean;
 };
 
 const BuyAmount = (props: Props) => {
@@ -24,8 +25,14 @@ const BuyAmount = (props: Props) => {
 	);
 };
 
-const AmountContainer = styled.div``;
-const AmountInput = styled.input.attrs({ type: "number", min: 0 })``;
+const AmountContainer = styled.div`
+	white-space: nowrap;
+	display: inline-block;
+	margin: 1vh;
+`;
+const AmountInput = styled.input.attrs({ type: "number", min: 0 })`
+	width: 3ch;
+`;
 const IncreaseButton = styled.button``;
 const DecreaseButton = styled.button``;
 

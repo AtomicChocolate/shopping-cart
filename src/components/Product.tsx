@@ -1,15 +1,16 @@
-import React, { ChangeEvent, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { CartItem, ShopItem } from "../utils/Types";
 import BuyAmount from "./BuyAmount";
 
 type Props = {
 	item: ShopItem;
+	defaultAmount: number;
 	addToCart: (newCartItem: CartItem) => void;
 };
 
 const Product = (props: Props) => {
-	const [buyAmount, setBuyAmount] = useState(1);
+	const [buyAmount, setBuyAmount] = useState(props.defaultAmount);
 
 	return (
 		<ProductContainer>

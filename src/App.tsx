@@ -8,6 +8,7 @@ const App = () => {
 	} as CartType);
 
 	const addToCart = (newCartItem: CartItem): void => {
+		newCartItem.amount = Math.max(newCartItem.amount, 0);
 		const newCart = Object.assign({}, cart);
 		const find = newCart.items.find(
 			(cartItem) => cartItem.item === newCartItem.item
