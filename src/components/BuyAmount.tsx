@@ -30,7 +30,7 @@ const BuyAmount = (props: Props) => {
 const AmountContainer = styled.div`
 	white-space: nowrap;
 	display: inline-block;
-	margin: 1vh;
+	margin: 1%;
 `;
 const AmountInput = styled.input.attrs({ type: "number", min: 1 })`
 	width: 5ch;

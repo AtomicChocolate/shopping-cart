@@ -32,16 +32,28 @@ const ProductContainer = styled.div`
 	text-align: center;
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	/*
+	CSS Grid might be better for this 
+	because some sizes swap the positions of
+	the Total text and the Remove button randomly 
+	*/
 `;
 const Thumbnail = styled.img`
-	height: 7.5vh;
-	max-width: auto;
+	height: auto;
+	width: 25%;
 `;
-const Name = styled.h2``;
+const Name = styled.h2`
+	width: 40%;
+`;
 const Price = styled.p``;
 const RemoveButton = styled.button``;
 const TotalPrice = styled.p`
 	color: lightgreen;
+	width: 15%;
+	text-align: center;
+	vertical-align: center;
 `;
 
 export default CartProduct;
